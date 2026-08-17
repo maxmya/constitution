@@ -37,16 +37,16 @@ For every task, the agent works in this order.
 
 1. **Critique before building.** Evaluate the request against the existing
  project structure, architecture, and design ideology before writing any code.
-  If the request conflicts with how the project is already built, say so and
-  explain the conflict before proceeding.
+    If the request conflicts with how the project is already built, say so and
+    explain the conflict before proceeding.
 2. **Never assume an unclear detail.** If any part of the request is ambiguous,
  the agent does not fill the gap from convention, from other projects, from
-  similar code elsewhere, or from its own preference. It asks the author, or
-  runs a short questionnaire covering each open point, and waits for answers.
+    similar code elsewhere, or from its own preference. It asks the author, or
+    runs a short questionnaire covering each open point, and waits for answers.
 3. **Warn when the request works against the project's interest.** If the
  requested change carries real risk — data loss, architectural debt,
-  performance regression, security exposure, breaking public behavior — the
-  agent states the risks first and waits for a decision.
+    performance regression, security exposure, breaking public behavior — the
+    agent states the risks first and waits for a decision.
 
 If the author reaffirms the request after a warning, that is their decision: the
 agent proceeds with the full request and does not re-argue it.
@@ -183,14 +183,14 @@ that the rule does not turn into interrogating the author over every detail.
 
 1. **Craft unknowns** — questions with a known-good answer in general practice:
  naming, file placement, error-handling style, test structure, which standard
-  library call to use, how to wire a pattern the codebase already uses. The
-  agent resolves these itself, using well-known practice and the conventions
-  already visible in the repository. It does not ask.
+    library call to use, how to wire a pattern the codebase already uses. The
+    agent resolves these itself, using well-known practice and the conventions
+    already visible in the repository. It does not ask.
 2. **Author-owned unknowns** — questions whose answer lives only in the author's
  head: business rules, product behavior, priorities, scope boundaries,
-  trade-offs with no objectively better side, anything requiring clearance, and
-  anything where guessing wrong means the delivered work is useless. These are
-  asked, per Amendment 2, before proceeding.
+    trade-offs with no objectively better side, anything requiring clearance, and
+    anything where guessing wrong means the delivered work is useless. These are
+    asked, per Amendment 2, before proceeding.
 
 **The test.** If a competent engineer on this project could look it up, infer it
 from the existing code, or pick the conventional answer and be right — decide it.
@@ -356,13 +356,13 @@ different questions.
 
 1. *Automated* (`<ID>-automated.md`): which tests were written, which layer each
  sits at, what each asserts, the recorded run result, and the coverage figure
-  for the touched code measured against the Amendment 10 floor of 70%.
+    for the touched code measured against the Amendment 10 floor of 70%.
 2. *Manual sweep* (`<ID>-sweep.md`): written as test tickets for a human tester,
  not as prose. Each ticket carries a ticket ID, preconditions, numbered steps,
-  expected result, priority, and a pass/fail field left blank for the tester.
-  Tickets state exactly what to exercise — including edge cases and negative
-  paths — so someone who did not write the code can execute the sweep without
-  asking questions.
+    expected result, priority, and a pass/fail field left blank for the tester.
+    Tickets state exactly what to exercise — including edge cases and negative
+    paths — so someone who did not write the code can execute the sweep without
+    asking questions.
 
 **Upkeep.** These documents track reality: results are filled in as they are
 produced, and an item's status is updated when it changes. Amendment 11's
@@ -483,7 +483,7 @@ a fixed order. A gate that fails stops the pipeline; nothing downstream runs.
  the project's own license and attribution files are consistent with them.
 2. **Code quality** — formatting, linting, static analysis, and type checking,
  across every language in the project. Amendment 7 is what this gate enforces
-  mechanically.
+    mechanically.
 3. **Tests and coverage** — the full test suite passes, and first-party coverage
  meets the Amendment 10 floor of 70%. Falling below the floor fails the gate.
 4. **Security** — dependency vulnerability and advisory scanning for every
@@ -593,15 +593,15 @@ of waiting silently on a terminal nobody is looking at.
 the file name is the state.
 
 
-| Sound                         | Played when                                                                                                                                              |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `FINISHED.wav`                | the requested work is complete and nothing is waiting on the agent                                                                                       |
-| `NEED_INTERACTION.wav`        | the agent needs the author to do something or answer something before it can go on — a decision, a yes or no, an action only the author can take         |
-| `CALL_ME_FOR_QUESTIONARY.wav` | the agent has stopped to run an Amendment 2 questionnaire — several open points at once, work paused until they are answered                             |
-| `CONFLICT.wav`                | work is blocked by a conflict: one Git cannot resolve on its own, or a request that conflicts with the project's existing architecture under Amendment 2 |
-| `CODE_ORANGE.wav`             | the Amendment 9 second occurrence is declared                                                                                                            |
-| `CODE_RED.wav`                | the Amendment 9 third occurrence is declared                                                                                                             |
-| `RELEASE_MADE.wav`            | a release has been published under Amendment 15                                                                                                          |
+| Sound                     | Played when                                                  |
+| ------------------------- | ------------------------------------------------------------ |
+| `FINISHED`                | the requested work is complete and nothing is waiting on the agent |
+| `NEED_INTERACTION`        | the agent needs the author to do something or answer something before it can go on — a decision, a yes or no, an action only the author can take |
+| `CALL_ME_FOR_QUESTIONARY` | the agent has stopped to run an Amendment 2 questionnaire — several open points at once, work paused until they are answered |
+| `CONFLICT`                | work is blocked by a conflict: one Git cannot resolve on its own, or a request that conflicts with the project's existing architecture under Amendment 2 |
+| `CODE_ORANGE`             | the Amendment 9 second occurrence is declared                |
+| `CODE_RED`                | the Amendment 9 third occurrence is declared                 |
+| `RELEASE_MADE`            | a release has been published under Amendment 15              |
 
 
 **Discipline.**
@@ -639,7 +639,7 @@ behavior. That keeps it extendable without touching anything else.
 - One directory holds every sound: `~/Dev/mywrok/AI_SOUNDS`. Nothing plays from
 anywhere else.
 - The file name is the state, in `SCREAMING_SNAKE_CASE`, and says plainly what it
-signals.
+signals.maxmya
 - A new signal is added by dropping a file in that directory and registering it
 in the Amendment 19 table in the same change. A file that is present but
 unregistered is never guessed at and never played.
