@@ -613,7 +613,7 @@ makes a noise is also stated in the response, because the author may be out of
 earshot, may have the volume down, or may read the session later.
 - Ordinary progress is silent. These states are the whole list — routine steps,
 successful commands, and intermediate results make no sound.
-- `NEED_INTERACTION.wav` marks a real handover to the author, judged by the
+- `NEED_INTERACTION` marks a real handover to the author, judged by the
 agent: a question asked, a choice put to them, a step only they can perform. It
 is not tied to the harness's own notifications — permission prompts, tool
 dialogs, and idle notices are not this state and do not sound.
@@ -623,7 +623,7 @@ steals no focus, and sends no input. It stays allowed by default.
 **How it is played.** Playback is detached so it never blocks the work:
 
 ```
-pw-play ~/Dev/mywrok/AI_SOUNDS/FINISHED.wav >/dev/null 2>&1 &
+pw-play ~/Dev/mywrok/AI_SOUNDS/FINISHED.* >/dev/null 2>&1 &
 ```
 
 `paplay` is the fallback where `pw-play` is unavailable; any player that exits on
@@ -638,8 +638,8 @@ behavior. That keeps it extendable without touching anything else.
 
 - One directory holds every sound: `~/Dev/mywrok/AI_SOUNDS`. Nothing plays from
 anywhere else.
-- The file name is the state, in `SCREAMING_SNAKE_CASE`, and says plainly what it
-signals.maxmya
+- The file name (without extension, in any supported audio format) is the state, in `SCREAMING_SNAKE_CASE`, and says plainly what it
+signals.
 - A new signal is added by dropping a file in that directory and registering it
 in the Amendment 19 table in the same change. A file that is present but
 unregistered is never guessed at and never played.
